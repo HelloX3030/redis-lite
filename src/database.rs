@@ -22,4 +22,8 @@ impl Store {
             println!("[{}]: {}", key, value);
         }
     }
+
+    pub fn delete(&mut self, key: &str) {
+        self.map.remove(key);
+    }
 }

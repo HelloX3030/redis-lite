@@ -11,5 +11,14 @@ fn main() {
     if let Some(spaten) = store.get("Spaten") {
         println!("Der Wahre Spaten: {}", spaten);
     }
+    store.delete("ABC");
+    match store.get("ABC") {
+        Some(abc) => {
+            println!("ABC: {}", abc);
+        }
+        None => {
+            println!("No ABC found!!!!!!");
+        }
+    }
     store.print();
 }
