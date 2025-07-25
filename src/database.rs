@@ -1,12 +1,13 @@
 use std::collections::HashMap;
+use crate::store::Store;
 
-pub struct Store {
+pub struct Database {
     map: HashMap::<String, String>,
 }
 
-impl Store {
-    pub fn new() -> Store {
-        Store { map: HashMap::new() }
+impl Database {
+    pub fn new() -> Database {
+        Database { map: HashMap::new() }
     }
 
     pub fn set(&mut self, key: String, value: String) {
@@ -25,5 +26,11 @@ impl Store {
 
     pub fn delete(&mut self, key: &str) {
         self.map.remove(key);
+    }
+}
+
+impl Store for Database {
+    fn store(&self) {
+        println!("Store Called!");
     }
 }
